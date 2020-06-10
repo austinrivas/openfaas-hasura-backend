@@ -1,0 +1,20 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  auth-login:
+    lang: deno-http
+    handler: ./function
+    image: austinrivas/auth-login:latest
+    limits:
+      memory: 40Mi
+      cpu: 100m
+    requests:
+      memory: 20Mi
+      cpu: 100m
+configuration:
+  templates:
+    - name: deno-http
+      source: https://github.com/austinrivas/deno-http-template
+
