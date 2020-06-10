@@ -1,11 +1,11 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://127.0.0.1:8080
+  gateway: https://openfaas-ingress-austinrivas.cloud.okteto.net/
 functions:
   auth-login:
     lang: deno-http
-    handler: ./function
+    handler: ./login
     image: austinrivas/auth-login:latest
     limits:
       memory: 40Mi
