@@ -1,2 +1,4 @@
 *.key
 *.pub
+template
+build
