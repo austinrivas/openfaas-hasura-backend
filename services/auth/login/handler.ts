@@ -13,8 +13,6 @@ import { parseRequestBody } from "./shared/utils.ts";
 import { authLoginHandler, AuthLoginRequestBody } from "./mod.ts";
 //#endregion local imports
 
-// inspired by https://github.com/denoland/deno/blob/master/std/http/server_test.ts
-
 export default async (request: ServerRequest): Promise<ServerResponse> => {
   const requestBody = await parseRequestBody<AuthLoginRequestBody>(
     request.body,
