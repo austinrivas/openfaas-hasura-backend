@@ -23,7 +23,7 @@ securityContext:
     - SYS_PTRACE
 environment:
   # overrides the one set by openfaas
-  - fprocess=deno run --inspect --allow-net --allow-env main.ts
+  - fprocess=deno run --allow-net --allow-read --config ./function/shared/tsconfig.json main.ts
 forward:
   - 8080:8080
   - 9229:9229
