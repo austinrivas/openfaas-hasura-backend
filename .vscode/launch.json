@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "lldb",
+        "request": "launch",
+        "name": "Rust Debug",
+        "program": "${workspaceRoot}/services/rust-hello/build/rust-hello/main/target/debug/main",
+        "args": [],
+        "cwd": "${workspaceRoot}",
+        "sourceLanguages": ["rust"]
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Run Tests",
@@ -13,7 +22,10 @@
         "test",
         "--inspect-brk",
         "--allow-net",
-        "--allow-env"
+        "--allow-env",
+        "--allow-read",
+        "--config",
+        "${workspaceFolder}/services/auth/shared/tsconfig.json"
       ],
       "port": 9229,
       "console": "integratedTerminal"
@@ -28,7 +40,10 @@
         "${file}",
         "--inspect-brk",
         "--allow-net",
-        "--allow-env"
+        "--allow-env",
+        "--allow-read",
+        "--config",
+        "${workspaceFolder}/services/auth/shared/tsconfig.json"
       ],
       "port": 9229,
       "console": "integratedTerminal"
@@ -45,7 +60,10 @@
         "${selectedText}",
         "--inspect-brk",
         "--allow-net",
-        "--allow-env"
+        "--allow-env",
+        "--allow-read",
+        "--config",
+        "${workspaceFolder}/services/auth/shared/tsconfig.json"
       ],
       "port": 9229,
       "console": "integratedTerminal"
