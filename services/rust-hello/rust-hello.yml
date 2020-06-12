@@ -4,7 +4,7 @@ provider:
   gateway: http://127.0.0.1:8080
 functions:
   rust-hello:
-    lang: rust-http
+    lang: rust-warp
     handler: ./function
     image: austinrivas/rust-hello:latest
 

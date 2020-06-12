@@ -1,11 +1,14 @@
-use hyper::{Body, Request, Response};
+#[macro_use]
+extern crate serde_json;
+use warp::{Filter, filters::BoxedFilter, Reply};
 
-const PHRASE: &str = r#"
-  {
-    "message": "Hello, World!"
-  }
-"#;
-
-pub fn handle(_req: Request<Body>) -> Response<Body> {
-    Response::new(Body::from(PHRASE))
+pub fn handle() -> BoxedFilter<(impl Reply,)> {
+  // POST /hola => 200 OK with body
+  warp::post()
+    .and(warp::header("user-agent"))
+    .map(|agent: String| {
+      let message = format!("Hola hasura, whose agent is {}", agent);
+      json!({"message": message}).to_string()
+    })
+    .boxed()
 }
