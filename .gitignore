@@ -2,4 +2,5 @@ keys
 *.key
 *.pub
 template
+target
 build
